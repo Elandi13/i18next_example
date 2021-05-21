@@ -11,10 +11,20 @@ function App() {
   const [counter, setCounter] = useState(0)
 
 
+  const handleIncrement = () => {
+    setCounter(prevCount => prevCount + 1);
+  };
+
+  const handleDecrement = () => {
+    setCounter(prevCount => prevCount - 1)
+  }
+
+
 
   function handleClick(lang){
     i18n.changeLanguage(lang)
   }
+  
   
 
 
@@ -30,10 +40,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p> {t('Hello.1')}</p>
         <p> {t('Text.1')}</p>
-        <p> {counter}</p>
-        <button onClick={()=> {
-          setCounter(counter + 1)
-        }}> Increase Counter </button>
+        <p> {counter} </p>
+        <button onClick={handleIncrement}> Increase Counter </button>
+        <br/>
+        <button onClick={handleDecrement}> Decrease Counter </button>
       </header>
     </div>
   );
